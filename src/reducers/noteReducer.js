@@ -1,7 +1,7 @@
 const noteReducer = (state = [], action) => {
   switch (action.type) {
     case 'NEW_NOTE':
-      return state.concat(action.data);
+      return [...state, action.data];
     case 'TOGGLE_IMPORTANCE': {
       const id = action.data.id;
       const noteToChange = state.find((n) => n.id === id);
@@ -16,4 +16,4 @@ const noteReducer = (state = [], action) => {
   }
 };
 
-module.exports = noteReducer;
+export default noteReducer;
